@@ -202,9 +202,6 @@ public class Animal extends Model implements ListagemMaqueada, ListagemFiltravel
     }
 
     public Animal getPai() {
-        if (this.pai == null) {
-            this.pai = new Animal();
-        }
         return pai;
     }
 
@@ -214,9 +211,6 @@ public class Animal extends Model implements ListagemMaqueada, ListagemFiltravel
     }
 
     public Animal getMae() {
-        if (this.mae == null) {
-            this.mae = new Animal();
-        }
         return mae;
     }
 
@@ -244,11 +238,11 @@ public class Animal extends Model implements ListagemMaqueada, ListagemFiltravel
     }
     
     public String getDataNascimentoConsulta() {
-        return DateUtils.dateToString(this.getDataNascimento());
+        return this.getDataNascimento() != null ? DateUtils.dateToString(this.getDataNascimento()) : "";
     }
     
     public String getDataAquisicaoConsulta() {
-        return DateUtils.dateToString(this.getDataAquisicao());
+        return this.getDataAquisicao() != null ? DateUtils.dateToString(this.getDataAquisicao()) : "";
     }
     
     public String getStatusConsulta() {

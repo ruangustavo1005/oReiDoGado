@@ -280,11 +280,11 @@ public class ViewManutencaoAnimal extends ViewManutencao<Animal> {
         model.setTipoEntrada(this.comboBoxTipoEntrada.getItemAt(this.comboBoxTipoEntrada.getSelectedIndex()));
         
         Animal pai = this.comboBoxPai.getItemAt(this.comboBoxPai.getSelectedIndex());
-        if (pai != null) {
+        if (pai != null && pai.getId() > 0) {
             model.setPai(pai);
         }
         Animal mae = this.comboBoxMae.getItemAt(this.comboBoxMae.getSelectedIndex());
-        if (mae != null) {
+        if (mae != null && mae.getId() > 0) {
             model.setMae(mae);
         }
         return model;
@@ -309,11 +309,11 @@ public class ViewManutencaoAnimal extends ViewManutencao<Animal> {
         this.comboBoxTipoEntrada.setSelectedItem(this.getModel().getTipoEntrada());
         
         Animal pai = this.getModel().getPai();
-        if (pai.isChavePreenchida()) {
+        if (pai != null && pai.isChavePreenchida()) {
             this.comboBoxPai.setSelectedItem(pai);
         }
         Animal mae = this.getModel().getMae();
-        if (mae.isChavePreenchida()) {
+        if (mae != null && mae.isChavePreenchida()) {
             this.comboBoxMae.setSelectedItem(mae);
         }
     }
