@@ -27,9 +27,7 @@ public class ViewConsultaManejo extends ViewConsulta<Manejo> {
     private void initComponents() {
 
         botaoInserir = new javax.swing.JButton();
-        botaoAlterar = new javax.swing.JButton();
         botaoExcluir = new javax.swing.JButton();
-        botaoVisualizar = new javax.swing.JButton();
         botaoConsultar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
@@ -45,11 +43,7 @@ public class ViewConsultaManejo extends ViewConsulta<Manejo> {
 
         botaoInserir.setText("Inserir");
 
-        botaoAlterar.setText("Alterar");
-
         botaoExcluir.setText("Excluir");
-
-        botaoVisualizar.setText("Visualizar");
 
         botaoConsultar.setText("Consultar");
 
@@ -71,22 +65,16 @@ public class ViewConsultaManejo extends ViewConsulta<Manejo> {
                         .addComponent(listaCampo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botaoInserir)
-                        .addGap(18, 18, 18)
-                        .addComponent(botaoAlterar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(botaoExcluir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoVisualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(listaOperador, 0, 110, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoFiltro2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(131, 131, 131)))
+                        .addGap(6, 6, 6)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(listaOperador, 0, 110, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoFiltro2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(131, 131, 131)
                 .addComponent(botaoConsultar)
                 .addGap(12, 12, 12))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -97,9 +85,7 @@ public class ViewConsultaManejo extends ViewConsulta<Manejo> {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoInserir)
-                    .addComponent(botaoAlterar)
-                    .addComponent(botaoExcluir)
-                    .addComponent(botaoVisualizar))
+                    .addComponent(botaoExcluir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoConsultar)
@@ -119,9 +105,7 @@ public class ViewConsultaManejo extends ViewConsulta<Manejo> {
     @Override
     public ArrayList<JButton> getAcoesGrid() {
         ArrayList<JButton> acoes = new ArrayList<>();
-        acoes.add(this.getBotaoAlterar());
         acoes.add(this.getBotaoExcluir());
-        acoes.add(this.getBotaoVisualizar());
         return acoes;
     }
 
@@ -151,14 +135,6 @@ public class ViewConsultaManejo extends ViewConsulta<Manejo> {
         return this;
     }
 
-    public JButton getBotaoAlterar() {
-        return botaoAlterar;
-    }
-
-    public void setBotaoAlterar(JButton botaoAlterar) {
-        this.botaoAlterar = botaoAlterar;
-    }
-
     public JButton getBotaoConsultar() {
         return botaoConsultar;
     }
@@ -183,14 +159,6 @@ public class ViewConsultaManejo extends ViewConsulta<Manejo> {
         this.botaoInserir = botaoInserir;
     }
 
-    public JButton getBotaoVisualizar() {
-        return botaoVisualizar;
-    }
-
-    public void setBotaoVisualizar(JButton botaoVisualizar) {
-        this.botaoVisualizar = botaoVisualizar;
-    }
-
     @Override
     public JFormattedTextField getCampoValorFiltro() {
         return this.campoFiltro;
@@ -212,11 +180,9 @@ public class ViewConsultaManejo extends ViewConsulta<Manejo> {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoAlterar;
     private javax.swing.JButton botaoConsultar;
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoInserir;
-    private javax.swing.JButton botaoVisualizar;
     private javax.swing.JFormattedTextField campoFiltro;
     private javax.swing.JFormattedTextField campoFiltro2;
     private javax.swing.JLabel jLabel1;

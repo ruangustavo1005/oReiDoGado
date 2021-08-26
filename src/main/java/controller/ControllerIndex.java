@@ -97,7 +97,7 @@ public class ControllerIndex extends ControllerConsulta<Animal, ViewIndex, Dao> 
     
     private void addListenerAcaoInserirManejoLote() {
         this.getView().getBotaoInserirManejoLote().addActionListener((e) -> {
-            this.getView().showMensagem("Método ControllerIndex.addListenerAcaoInserirManejoLote() não implementado");
+            (new ControllerManutencaoManejoLote(this, false)).setAnimais(this.getSelectedModels()).montaTela();
         });
     }
     

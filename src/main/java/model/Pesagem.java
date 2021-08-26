@@ -2,6 +2,7 @@
 
 import java.util.Date;
 import javax.persistence.Entity;
+import utils.NumberUtils;
 
 /**
  * @author Ruan
@@ -32,6 +33,11 @@ public class Pesagem extends Manejo {
     public Pesagem setPeso(float peso) {
         this.peso = peso;
         return this;
+    }
+
+    @Override
+    public String getDescricaoManejo() {
+        return "Pesagem de " + NumberUtils.formataValor(this.getPeso(), 2, true) + " KG";
     }
     
 }

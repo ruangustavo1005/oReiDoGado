@@ -25,11 +25,14 @@ public class TableModelPadrao<Type> extends AbstractTableModel {
     protected List<Type>   modelos;
     protected Type         modelo;
     protected List<String> atributos;
+    protected Class        clazz;
 
     public TableModelPadrao(Type modelo) {
         this.modelo  = modelo;
         this.modelos = new ArrayList<>();
-        this.iniAtributos();
+        if (modelo != null) {
+            this.iniAtributos();
+        }
     }
 
     public TableModelPadrao(ArrayList<Type> modelos) {
@@ -37,10 +40,21 @@ public class TableModelPadrao<Type> extends AbstractTableModel {
         this.modelo  = modelos.get(0);
         this.iniAtributos();
     }
+
+    public Class getClazz() {
+        return clazz;
+    }
+
+    public void setClazz(Class clazz) {
+        this.clazz = clazz;
+        if (this.atributos == null) {
+            this.iniAtributos();
+        }
+    }
     
     protected final void iniAtributos() {
         this.atributos = new ArrayList<>();
-        Class classAtual = modelo.getClass();
+        Class classAtual = (modelo != null) ? modelo.getClass() : this.getClazz();
         while (!classAtual.isInstance(new Object())) {
             for (Field field : classAtual.getDeclaredFields()) {
                 this.atributos.add(field.getName());

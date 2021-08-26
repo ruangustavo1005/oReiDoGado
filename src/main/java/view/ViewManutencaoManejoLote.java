@@ -17,16 +17,17 @@ import model.UnidadeMedida;
 import utils.DateUtils;
 import utils.Lista;
 import utils.NumberUtils;
+import static view.View.MASCARA_DATE;
+import static view.View.MASCARA_DOUBLE_8_2;
+import static view.View.MASCARA_DOUBLE_9_3;
 
 /**
  *
  * @author Ruan
  */
-public class ViewManutencaoManejo extends ViewManutencao<Manejo> {
+public class ViewManutencaoManejoLote extends ViewManutencao<Manejo> {
 
-    private Animal animal;
-    
-    public ViewManutencaoManejo() {
+    public ViewManutencaoManejoLote() {
         initComponents();
         
         this.formataCamposManejo();
@@ -89,17 +90,13 @@ public class ViewManutencaoManejo extends ViewManutencao<Manejo> {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        campoId = new javax.swing.JFormattedTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        botaoConfirmar = new javax.swing.JButton();
-        botaoFechar = new javax.swing.JButton();
         campoData = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         campoObservacoes = new javax.swing.JTextArea();
         comboBoxTipoManejo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        campoId = new javax.swing.JFormattedTextField();
         telaWizard = new javax.swing.JTabbedPane();
         abaBaixa = new javax.swing.JDesktopPane();
         comboBoxTipoBaixa = new javax.swing.JComboBox<>();
@@ -123,22 +120,15 @@ public class ViewManutencaoManejo extends ViewManutencao<Manejo> {
         abaTransferenciaArea = new javax.swing.JDesktopPane();
         jLabel6 = new javax.swing.JLabel();
         comboBoxAreaTransferenciaArea = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         comboBoxAnimal = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
+        botaoConfirmar = new javax.swing.JButton();
+        botaoFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Manejo");
-        setResizable(false);
-
-        campoId.setEnabled(false);
-
-        jLabel1.setText("Id:");
-
-        jLabel3.setText("Data:");
-
-        botaoConfirmar.setText("Confirmar");
-
-        botaoFechar.setText("Fechar");
+        setTitle("Manejo (em Lote)");
 
         jLabel2.setText("Observações:");
 
@@ -147,6 +137,8 @@ public class ViewManutencaoManejo extends ViewManutencao<Manejo> {
         jScrollPane1.setViewportView(campoObservacoes);
 
         jLabel4.setText("Tipo do Manejo:");
+
+        campoId.setEnabled(false);
 
         jLabel15.setText("Valor:");
 
@@ -183,7 +175,7 @@ public class ViewManutencaoManejo extends ViewManutencao<Manejo> {
                 .addGroup(abaBaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoValorBaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         telaWizard.addTab("Baixa", abaBaixa);
@@ -210,7 +202,7 @@ public class ViewManutencaoManejo extends ViewManutencao<Manejo> {
                 .addGroup(abaCoberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(campoEntradaCobertura, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(campoSaidaCobertura, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(310, Short.MAX_VALUE))
+                .addContainerGap(313, Short.MAX_VALUE))
         );
         abaCoberturaLayout.setVerticalGroup(
             abaCoberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,7 +215,7 @@ public class ViewManutencaoManejo extends ViewManutencao<Manejo> {
                 .addGroup(abaCoberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoSaidaCobertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         telaWizard.addTab("Cobertura", abaCobertura);
@@ -268,7 +260,7 @@ public class ViewManutencaoManejo extends ViewManutencao<Manejo> {
                     .addComponent(campoQuantidadeMedicacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20)
                     .addComponent(comboBoxUnidadeMedidaMedicacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         telaWizard.addTab("Medicação", abaMedicacao);
@@ -287,7 +279,7 @@ public class ViewManutencaoManejo extends ViewManutencao<Manejo> {
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoPesoPesagem, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(335, Short.MAX_VALUE))
+                .addContainerGap(336, Short.MAX_VALUE))
         );
         abaPesagemLayout.setVerticalGroup(
             abaPesagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,7 +288,7 @@ public class ViewManutencaoManejo extends ViewManutencao<Manejo> {
                 .addGroup(abaPesagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoPesoPesagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         telaWizard.addTab("Pesagem", abaPesagem);
@@ -315,7 +307,7 @@ public class ViewManutencaoManejo extends ViewManutencao<Manejo> {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comboBoxAreaTransferenciaArea, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         abaTransferenciaAreaLayout.setVerticalGroup(
             abaTransferenciaAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,12 +316,20 @@ public class ViewManutencaoManejo extends ViewManutencao<Manejo> {
                 .addGroup(abaTransferenciaAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxAreaTransferenciaArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         telaWizard.addTab("Transferência de Área", abaTransferenciaArea);
 
-        jLabel5.setText("Animal:");
+        jLabel1.setText("Id:");
+
+        jLabel3.setText("Data:");
+
+        jLabel5.setText("Animais:");
+
+        botaoConfirmar.setText("Confirmar");
+
+        botaoFechar.setText("Fechar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -404,7 +404,6 @@ public class ViewManutencaoManejo extends ViewManutencao<Manejo> {
             model.setId(Integer.valueOf(campoId.getText()));
         }
         
-        model.setAnimal(this.getAnimal());
         model.setData(DateUtils.stringToDate(this.campoData.getText()));
         model.setObservacoes(this.campoObservacoes.getText());
         
@@ -452,15 +451,6 @@ public class ViewManutencaoManejo extends ViewManutencao<Manejo> {
     public void trataCamposVisualizacao(Container container) {
         super.trataCamposVisualizacao(container);
         this.getBotaoConfirmar().setEnabled(false);
-    }
-
-    public Animal getAnimal() {
-        return animal;
-    }
-
-    public ViewManutencaoManejo setAnimal(Animal animal) {
-        this.animal = animal;
-        return this;
     }
     
     public JButton getBotaoConfirmar() {

@@ -38,5 +38,10 @@ public class TransferenciaArea extends Manejo {
         this.area = area;
         return this;
     }
+
+    @Override
+    public String getDescricaoManejo() {
+        return "Transferência para a área " + this.getArea().getDescricao();
+    }
     
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.persistence.Entity;
 import utils.Lista;
+import utils.NumberUtils;
 
 /**
  * @author Ruan
@@ -62,6 +63,11 @@ public class Baixa extends Manejo {
         lista.add(new Lista<>(TIPO_BAIXA_DOACAO, _TIPO_BAIXA_DOACAO));
         lista.add(new Lista<>(TIPO_BAIXA_MORTE,  _TIPO_BAIXA_MORTE));
         return lista;
+    }
+
+    @Override
+    public String getDescricaoManejo() {
+        return "Baixa de R$" + NumberUtils.formataValor(this.getValor(), 2, true) + " por motivo de " + Baixa.getListaTipoBaixa().get(this.getTipo());
     }
     
 }

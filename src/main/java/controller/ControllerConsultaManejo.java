@@ -1,6 +1,6 @@
 package controller;
 
-import dao.Dao;
+import dao.DaoManejo;
 import javax.swing.JOptionPane;
 import model.Animal;
 import model.Manejo;
@@ -9,17 +9,17 @@ import view.ViewConsultaManejo;
 /**
  * @author Ruan
  */
-public class ControllerConsultaManejo extends ControllerConsulta<Manejo, ViewConsultaManejo, Dao> {
+public class ControllerConsultaManejo extends ControllerConsulta<Manejo, ViewConsultaManejo, DaoManejo> {
 
     private Animal animal;
     
     public ControllerConsultaManejo(Controller caller) {
         super(caller);
     }
-
+ 
     @Override
     public Manejo getInstanceModel() {
-        return new Manejo() {};
+        return null;
     }
 
     @Override
@@ -27,12 +27,28 @@ public class ControllerConsultaManejo extends ControllerConsulta<Manejo, ViewCon
         return new ViewConsultaManejo();
     }
 
+    @Override
+    public DaoManejo getDao() {
+        return super.getDao(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public DaoManejo getInstanceDao() {
+        return this.getInstanceDao(Manejo.class);
+    }
+
+    @Override
+    public DaoManejo getInstanceDao(Class classe) {
+        return new DaoManejo();
+    }
+    
     public Animal getAnimal() {
         return animal;
     }
 
     public ControllerConsultaManejo setAnimal(Animal animal) {
         this.animal = animal;
+        this.getDao().setAnimalFiltroConsulta(animal);
         return this;
     }
 
@@ -44,20 +60,12 @@ public class ControllerConsultaManejo extends ControllerConsulta<Manejo, ViewCon
     
     private void addListenerAcoes() {
         this.addListenerAcaoInserir();
-        this.addListenerAcaoAlterar();
         this.addListenerAcaoExcluir();
-        this.addListenerAcaoVisualizar();
     }
     
     private void addListenerAcaoInserir() {
         this.getView().getBotaoInserir().addActionListener((e) -> {
             (new ControllerManutencaoManejo(this, false)).setAnimal(this.getAnimal()).montaTela();
-        });
-    }
-    
-    private void addListenerAcaoAlterar() {
-        this.getView().getBotaoAlterar().addActionListener((e) -> {
-            (new ControllerManutencaoManejo(this, false)).setAnimal(this.getAnimal()).setModel(this.getSelectedModel()).montaTela();
         });
     }
     
@@ -78,12 +86,6 @@ public class ControllerConsultaManejo extends ControllerConsulta<Manejo, ViewCon
                 }
                 this.atualizaConsulta();
             }
-        });
-    }
-    
-    private void addListenerAcaoVisualizar() {
-        this.getView().getBotaoVisualizar().addActionListener((e) -> {
-            (new ControllerManutencaoManejo(this, true)).setAnimal(this.getAnimal()).setModel(this.getSelectedModel()).montaTela();
         });
     }
     

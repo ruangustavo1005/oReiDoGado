@@ -1,10 +1,14 @@
 package model;
 
+import interfaces.ListagemAdicional;
 import interfaces.ListagemFiltravel;
+import interfaces.ListagemMaqueada;
 import interfaces.ListagemParcial;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,6 +17,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import utils.CampoFiltro;
+import utils.DateUtils;
 import utils.Lista;
 
 /**
@@ -20,7 +25,7 @@ import utils.Lista;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-abstract public class Manejo extends Model implements ListagemParcial, ListagemFiltravel {
+abstract public class Manejo extends Model implements ListagemParcial, ListagemFiltravel, ListagemAdicional, ListagemMaqueada {
 
     static public final Class TIPO_BAIXA              = Baixa.class;
     static public final Class TIPO_COBERTURA          = Cobertura.class;
@@ -97,6 +102,10 @@ abstract public class Manejo extends Model implements ListagemParcial, ListagemF
         return this;
     }
     
+    public String getDataConsulta() {
+        return DateUtils.dateToString(this.getData());
+    }
+    
     static public ArrayList<Lista<Class, String>> getListaTipos() {
         ArrayList<Lista<Class, String>> retorno = new ArrayList<>();
         retorno.add(new Lista(TIPO_BAIXA,              _TIPO_BAIXA));
@@ -121,6 +130,7 @@ abstract public class Manejo extends Model implements ListagemParcial, ListagemF
         campos.add("_TIPO_MEDICACAO");
         campos.add("_TIPO_PESAGEM");
         campos.add("_TIPO_TRANSFERENCIA_AREA");
+        campos.add("data");
         return campos;
     }
 
@@ -131,6 +141,26 @@ abstract public class Manejo extends Model implements ListagemParcial, ListagemF
         campos.add(new CampoFiltro(Date.class,    "data"));
         campos.add(new CampoFiltro(String.class,  "observacoes", "Observações"));
         return campos;
+    }
+
+    @Override
+    public List<String> getCamposAdicionar() {
+        ArrayList<String> campos = new ArrayList<>();
+        campos.add("descricaoManejo");
+        campos.add("dataConsulta");
+        return campos;
+    }
+
+    @Override
+    public Map<String, String> getTitulosColunas() {
+        HashMap<String, String> titulos = new HashMap<>();
+        titulos.put("descricaoManejo", "Descrição");
+        titulos.put("data",            "Data");
+        return titulos;
+    }
+    
+    public String getDescricaoManejo() {
+        return "Manejo sem descrição";
     }
 
 }

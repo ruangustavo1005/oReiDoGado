@@ -67,4 +67,9 @@ public class Medicacao extends Manejo {
         return this;
     }
 
+    @Override
+    public String getDescricaoManejo() {
+        return "Medicação de " + this.getQuantidade() + " " + this.getUnidadeMedida().getSigla() + " de " + this.getMedicamento().getDescricao();
+    }
+
 }

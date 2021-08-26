@@ -2,6 +2,7 @@ package model;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import utils.DateUtils;
 
 /**
  * @author Ruan
@@ -44,6 +45,11 @@ public class Cobertura extends Manejo {
     public Cobertura setDataProvavelSaida(Date dataProvavelSaida) {
         this.dataProvavelSaida = dataProvavelSaida;
         return this;
+    }
+
+    @Override
+    public String getDescricaoManejo() {
+        return "Cobertura de " + DateUtils.dateToString(this.getDataEntrada()) + " até " + DateUtils.dateToString(this.getDataProvavelSaida());
     }
     
 }

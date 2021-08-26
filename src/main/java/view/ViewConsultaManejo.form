@@ -35,27 +35,18 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="botaoInserir" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="botaoAlterar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="botaoExcluir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="botaoExcluir" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="botaoVisualizar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="listaOperador" pref="110" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="campoFiltro" min="-2" pref="129" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="campoFiltro2" min="-2" pref="129" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="listaOperador" pref="110" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="campoFiltro" min="-2" pref="129" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="campoFiltro2" min="-2" pref="129" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
               <Component id="botaoConsultar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
           </Group>
@@ -68,9 +59,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="botaoInserir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="botaoAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="botaoExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="botaoVisualizar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -93,19 +82,9 @@
         <Property name="text" type="java.lang.String" value="Inserir"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="botaoAlterar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Alterar"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="botaoExcluir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Excluir"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="botaoVisualizar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Visualizar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="botaoConsultar">
