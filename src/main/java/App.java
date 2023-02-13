@@ -1,5 +1,3 @@
-package main;
-
 import controller.ControllerLogin;
 import controller.ControllerPrimeiroLogin;
 
